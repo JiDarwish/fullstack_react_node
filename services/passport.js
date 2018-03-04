@@ -2,7 +2,6 @@ const passport = require('passport');
 const GoogleStartegy = require('passport-google-oauth20');
 const keys = require('../config/keys');
 const mongoose = require('mongoose');
-mongoose.Promise = global.Promise;
 const User = mongoose.model('users');
 
 passport.serializeUser((user, done) => {
@@ -19,7 +18,8 @@ passport.use(
     {
       clientID: keys.googleClientID,
       clientSecret: keys.googleClientSecret,
-      callbackURL: '/auth/google/callback'
+      callbackURL: '/auth/google/callback',
+      proxy: true
     },
     async (accessToken, refreshToken, profile, done) => {
       console.log('here saving user');
