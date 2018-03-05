@@ -29,10 +29,6 @@ app.use(passport.session());
 require('./routes/authRoutes')(app); // use the authRoutes
 require('./routes/billingRoutes')(app); // Use the billing routes
 
-app.get('/', (req, res) => {
-  res.send('Yo you made it');
-});
-
 if (process.env.NODE_ENV === 'production') {
   // make sure express surve prodcution assets like main.css and main.html
   app.use(express.static('client/build'));
