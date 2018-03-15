@@ -4,7 +4,7 @@ const { Schema } = mongoose;
 const userSchema = new Schema({
   googleID: {
     type: String,
-    required: true
+    required: 'GoogleId is required!'
   },
   credits: {
     default: 0,

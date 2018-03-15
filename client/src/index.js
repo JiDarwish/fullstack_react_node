@@ -15,6 +15,9 @@ const store = createStore(
   composeEnhancers(applyMiddleware(reduxThunk))
 );
 
+const axios = require('axios');
+window.axios = axios;
+
 ReactDOM.render(
   <Provider store={store}>
     <App />
